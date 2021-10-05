@@ -31,7 +31,7 @@ Add it to your `INSTALLED_APPS`:
 
     INSTALLED_APPS = (
         ...
-        '{{ cookiecutter.app_name }}.apps.{{ cookiecutter.app_config_name }}',
+        '{{ cookiecutter.app_name }}',
         ...
     )
 
