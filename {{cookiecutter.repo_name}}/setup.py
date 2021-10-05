@@ -76,11 +76,10 @@ setup(
         'Framework :: Django :: 2.1',{% endif %}
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
-        'Natural Language :: English',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
+        'Natural Language :: English',{% if 'py36' in cookiecutter.python_versions %}
+        'Programming Language :: Python :: 3.6',{% endif %}{% if 'py37' in cookiecutter.python_versions %}
+        'Programming Language :: Python :: 3.7',{% endif %}{% if 'py38' in cookiecutter.python_versions %}
+        'Programming Language :: Python :: 3.8',{% endif %}{% if 'py39' in cookiecutter.python_versions %}
+        'Programming Language :: Python :: 3.9',{% endif %}
     ],
 )
