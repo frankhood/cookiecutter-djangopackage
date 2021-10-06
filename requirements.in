@@ -1,0 +1,8 @@
+cookiecutter
+pytest-cookies
+pytest
+tox
+pytest-cov
+watchdog
+sh
+flake8

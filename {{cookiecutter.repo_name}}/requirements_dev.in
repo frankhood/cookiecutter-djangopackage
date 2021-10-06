@@ -1,0 +1,6 @@
+invoke
+twine
+wheel
+zest.releaser
+bumpversion
+{% if cookiecutter.models != "Comma-separated list of models" %}django-model-utils{% endif %}

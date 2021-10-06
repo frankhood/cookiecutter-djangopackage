@@ -1,0 +1,8 @@
+coverage
+mock
+flake8
+tox
+codecov
+{% if cookiecutter.models != "Comma-separated list of models" %}django-model-utils{% endif %}
+
+# Additional test requirements go here
