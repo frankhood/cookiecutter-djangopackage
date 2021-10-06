@@ -14,3 +14,7 @@ watch: bake
 replay: BAKE_OPTIONS=--replay
 replay: watch
 	;
+
+upgrade-requirements:
+	pip install -q -U pip pip-tools setuptools
+	pip-compile -q -U -o requirements_dev.txt requirements.in
