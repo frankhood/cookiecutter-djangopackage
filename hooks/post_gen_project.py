@@ -18,7 +18,7 @@ def remove_example_project(project_directory):
 
 
 def insert_python_versions(versions: str = ""):
-    env_text = Path(".github/actions.yml").read_text()
+    env_text = Path(".github/workflows/actions.yml").read_text()
     versions_arr = ""
     if "py36" in versions:
         versions_arr += "3.6, "
@@ -31,8 +31,8 @@ def insert_python_versions(versions: str = ""):
 
     env_text = env_text.replace("__PYTHON_VERSIONS__", str(versions_arr))
 
-    Path(".github/actions.yml").write_text(env_text)
-    print("Added python versions to .github/actions.yml file.")
+    Path(".github/workflows/actions.yml").write_text(env_text)
+    print("Added python versions to .github/workflows/actions.yml file.")
 
 
 # 1. Removes the example project if it isn't going to be used
