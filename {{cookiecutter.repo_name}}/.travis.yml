@@ -20,6 +20,8 @@ env: {% if '1.11' in cookiecutter.django_versions %}
 matrix:
   fast_finish: true{% if 'master' in cookiecutter.django_versions %}
   allow_failures:
+    - env: TOX_ENV=py27-django-master
+    - env: TOX_ENV=py34-django-master
     - env: TOX_ENV=py35-django-master
     - env: TOX_ENV=py36-django-master{% endif %}
 

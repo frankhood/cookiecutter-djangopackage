@@ -25,7 +25,8 @@ def inside_dir(dirpath):
 def bake_in_temp_dir(cookies, *args, **kwargs):
     """
     Delete the temporal directory that is created when executing the tests
-    :param cookies: pytest_cookies.Cookies, cookie to be baked and its temporal files will be removed
+    :param cookies: pytest_cookies.Cookies, cookie to be baked and its
+    temporal files will be removed
     """
     result = cookies.bake(*args, **kwargs)
     try:
@@ -70,7 +71,6 @@ def test_models(cookies):
         model_txt = model_file.read()
         assert "TimeStampedModel" in model_txt
 
-
 def test_views_with_models(cookies):
     """
     Test case to assert if the views are created when the models are passed
@@ -87,7 +87,8 @@ def test_views_with_models(cookies):
 
 def test_views_without_models(cookies):
     """
-    Test case to assert that the views.py file is empty when there are no models defined
+    Test case to assert that the views.py file is empty when there are no
+    models defined
     """
     extra_context = {"app_name": "cookies"}
     with bake_in_temp_dir(cookies, extra_context=extra_context) as result:
@@ -114,13 +115,14 @@ def test_urls_regex_with_model(cookies):
 
 def test_urls_without_model(cookies):
     """
-    Test case to assert that the urls.py file has the basic template when there are no models defined
+    Test case to assert that the urls.py file has the basic template when
+    there are no models defined
     """
     extra_context = {"app_name": "cookies"}
     with bake_in_temp_dir(cookies, extra_context=extra_context) as result:
         urls_file = result.project.join("cookies", "urls.py")
         urls_file_txt = urls_file.read()
-        basic_url = "url(r'', TemplateView.as_view(template_name=\"base.html\"))"
+        basic_url = "url(r'', TemplateView.as_view(template_name=\"base.html\"))"  # noqa
         assert basic_url in urls_file_txt
 
 
@@ -155,6 +157,7 @@ def test_authors(cookies):
         assert "Cookie McCookieface" in authors_text
 
 
+
 def test_manifest(cookies):
     extra_context = {"app_name": "cookie_lover"}
     with bake_in_temp_dir(cookies, extra_context=extra_context) as result:
@@ -179,7 +182,8 @@ def test_setup_py(cookies):
 
 def test_django_versions_default(cookies):
     """
-    Test case to assert that the tox.ini & setup.py files are generated with correct versions w default Django versions
+    Test case to assert that the tox.ini & setup.py files are generated
+    with correct versions w default Django versions
     """
 
     with bake_in_temp_dir(cookies) as result:
@@ -201,7 +205,8 @@ def test_django_versions_default(cookies):
 
 def test_new_django_versions(cookies):
     """
-    Test case to assert that the tox.ini & setup.py files are generated with correct versions with a new Django version
+    Test case to assert that the tox.ini & setup.py files are generated
+    with correct versions with a new Django version
     """
 
     extra_context = {"django_versions": "2.2,3.2", "python_versions": "py36,py37"}
