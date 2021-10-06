@@ -1,4 +1,4 @@
-name: 'cookiecutter-djangopackage' CI
+name: cookiecutter-djangopackage CI
 
 on:
   push:
