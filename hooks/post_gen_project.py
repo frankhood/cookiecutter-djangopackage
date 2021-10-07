@@ -17,7 +17,7 @@ def remove_example_project(project_directory):
     shutil.rmtree(location)
 
 
-def insert_python_versions(versions: str = ""):
+def insert_python_versions(versions: str = "", repo_name: str = ""):
     env_text = Path(".github/workflows/actions.yml").read_text()
     versions_arr = ""
     if "py36" in versions:
@@ -30,6 +30,7 @@ def insert_python_versions(versions: str = ""):
         versions_arr += "3.9 "
 
     env_text = env_text.replace("__PYTHON_VERSIONS__", str(versions_arr))
+    env_text = env_text.replace("__REPO_NAME__", str(repo_name))
 
     Path(".github/workflows/actions.yml").write_text(env_text)
     print("Added python versions to .github/workflows/actions.yml file.")
@@ -38,4 +39,4 @@ def insert_python_versions(versions: str = ""):
 # 1. Removes the example project if it isn't going to be used
 if "{{ cookiecutter.create_example_project }}".lower() == "n":
     remove_example_project(PROJECT_DIRECTORY)
-    insert_python_versions("{{cookiecutter.python_versions}}")
+    insert_python_versions("{{cookiecutter.python_versions}}", "{{ cookiecutter.repo_name }}")

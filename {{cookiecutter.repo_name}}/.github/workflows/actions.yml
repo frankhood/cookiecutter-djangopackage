@@ -1,4 +1,4 @@
-name: {{ cookiecutter.repo_name }} CI
+name: __REPO_NAME__ CI
 
 on:
   push:
@@ -33,7 +33,7 @@ jobs:
       run: |
         python -m pip install .
         python -m pip install coveralls==3.1.0 coverage
-        python -m coverage run --source {{ cookiecutter.repo_name }} runtests.py
+        python -m coverage run --source __REPO_NAME__ runtests.py
         coveralls --service=github
 
   read-the-docs:
