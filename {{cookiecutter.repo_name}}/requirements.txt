@@ -1,2 +1,3 @@
 {% if cookiecutter.models != "Comma-separated list of models" %}django-model-utils>=2.0{% endif %}
+Django
 # Additional requirements go here
