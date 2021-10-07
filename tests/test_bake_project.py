@@ -43,7 +43,7 @@ def test_bake_selecting_license(cookies):
         "Apache Software License 2.0": "Apache",
         "BSD": "Redistributions of source code must retain the above copyright notice, this",
         "ISCL": "Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee",
-        "MIT": "MIT ",
+        "MIT": "MIT",
     }
     for license, target_string in license_strings.items():
         with bake_in_temp_dir(
@@ -182,8 +182,8 @@ def test_django_versions_default(cookies):
         tox_file = result.project.join("tox.ini")
         tox_text = tox_file.read()
 
-        assert "py36,py37,py38,py39-django-22" in tox_text
-        assert "py36,py37,py38,py39-django-32" in tox_text
+        assert "{py36,py37,py38,py39}-django-22" in tox_text
+        assert "{py36,py37,py38,py39}-django-32" in tox_text
         setup_file = result.project.join("setup.py")
         setup_text = setup_file.read()
         assert "'Framework :: Django :: 2.2'," in setup_text
@@ -205,8 +205,8 @@ def test_new_django_versions(cookies):
 
         tox_file = result.project.join("tox.ini")
         tox_text = tox_file.read()
-        assert "py36,py37-django-22" in tox_text
-        assert "py36,py37-django-32" in tox_text
+        assert "{py36,py37}-django-22" in tox_text
+        assert "{py36,py37}-django-32" in tox_text
         setup_file = result.project.join("setup.py")
         setup_text = setup_file.read()
         assert "'Framework :: Django :: 2.2'," in setup_text

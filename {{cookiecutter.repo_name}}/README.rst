@@ -2,14 +2,15 @@
 {{ cookiecutter.project_name }}
 =============================
 
-.. image:: https://badge.fury.io/py/{{ cookiecutter.repo_name }}.svg
+.. image:: https://badge.fury.io/py/{{ cookiecutter.repo_name }}.svg/?style=flat-square
     :target: https://badge.fury.io/py/{{ cookiecutter.repo_name }}
 
-.. image:: https://travis-ci.org/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}.svg?branch=master
-    :target: https://travis-ci.org/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}
+.. image:: https://readthedocs.org/projects/pip/badge/?version=latest&style=flat-square
+    :target: https://{{ cookiecutter.repo_name }}.readthedocs.io/en/latest/
 
-.. image:: https://codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}/branch/master/graph/badge.svg
-    :target: https://codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}
+.. image:: https://img.shields.io/coveralls/github/frankhood/{{ cookiecutter.repo_name }}/master?style=flat-square
+    :target: https://coveralls.io/github/frankhood/{{ cookiecutter.repo_name }}?branch=master
+    :alt: Coverage Status
 
 {{ cookiecutter.project_short_description}}
 

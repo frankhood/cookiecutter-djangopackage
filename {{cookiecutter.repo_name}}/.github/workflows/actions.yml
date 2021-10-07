@@ -2,7 +2,7 @@ name: {{ cookiecutter.repo_name }} CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
   pull_request:
     branches: [ main ]
 
@@ -12,7 +12,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [__PYTHON_VERSIONS__]
+        python-version: [ __PYTHON_VERSIONS__ ]
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
@@ -27,33 +27,14 @@ jobs:
       run: python -m pip install --upgrade codecov tox tox-py
     - name: Test with tox ${{ matrix.python-version }}
       run: tox --py current
-
-  upload-to-coverage:
-    needs: [test]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: '0'
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
-      - name: Install Dependencies
-        run: |
-              python -m pip install --upgrade pip
-              pip install -r requirements.txt
-              python -m pip install coverage
-      - name: coverage
-        run: |
-              coverage run runtests.py
-              coverage xml
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v2
-        with:
-          flags: unittests
-          token: ${{ secrets.GIT_ACTIONS }}
-
+    - name: "Python3: Run tests and report to Coveralls"
+      env:
+       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        python -m pip install .
+        python -m pip install coveralls==3.1.0 coverage
+        python -m coverage run --source {{ cookiecutter.repo_name }} runtests.py
+        coveralls --service=github
 
   read-the-docs:
     runs-on: ubuntu-latest
