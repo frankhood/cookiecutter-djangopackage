@@ -28,7 +28,7 @@ def get_version(*file_paths):
     raise RuntimeError('Unable to find version string.')
 
 
-version = '{{ cookiecutter.version }}'
+version = get_version("{{ cookiecutter.repo_name }}/__init__.py")
 
 
 if sys.argv[-1] == 'publish':
