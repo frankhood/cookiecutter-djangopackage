@@ -130,15 +130,6 @@ def test_templates(cookies):
     pass
 
 
-def test_travis(cookies):
-    extra_context = {"app_name": "cookie_lover"}
-    with bake_in_temp_dir(cookies, extra_context=extra_context) as result:
-
-        travis_file = result.project.join(".travis.yml")
-        travis_text = travis_file.read()
-        assert "script: tox -e $TOX_ENV" in travis_text
-
-
 def test_tox(cookies):
     extra_context = {"app_name": "cookie_lover"}
     with bake_in_temp_dir(cookies, extra_context=extra_context) as result:
