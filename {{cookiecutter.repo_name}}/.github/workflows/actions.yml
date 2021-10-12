@@ -3,6 +3,8 @@ name: __REPO_NAME__ CI
 on:
   push:
     branches: [main, develop]
+    tags:
+      - "*"
   pull_request:
     branches: [ main ]
 
