@@ -7,5 +7,4 @@ tox
 codecov
 {% if cookiecutter.models != "Comma-separated list of models" %}django-model-utils{% endif %}
 
-Django
 # Additional test requirements go here

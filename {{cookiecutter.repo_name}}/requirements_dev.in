@@ -4,3 +4,5 @@ wheel
 zest.releaser
 bumpversion
 {% if cookiecutter.models != "Comma-separated list of models" %}django-model-utils{% endif %}
+
+Django>2.2
