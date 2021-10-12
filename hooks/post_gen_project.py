@@ -29,14 +29,15 @@ def insert_python_versions(versions: str = "", repo_name: str = ""):
     if "py39" in versions:
         versions_arr += "3.9 "
 
-    env_text = env_text.replace("__PYTHON_VERSIONS__", str(versions_arr))
-    env_text = env_text.replace("__REPO_NAME__", str(repo_name))
+    new_env_text = env_text.replace("__PYTHON_VERSIONS__", str(versions_arr))
+    new_env_text = new_env_text.replace("__REPO_NAME__", str(repo_name))
 
-    Path(".github/workflows/actions.yml").write_text(env_text)
+    Path(".github/workflows/actions.yml").write_text(new_env_text)
     print("Added python versions to .github/workflows/actions.yml file.")
 
 
 # 1. Removes the example project if it isn't going to be used
 if "{{ cookiecutter.create_example_project }}".lower() == "n":
     remove_example_project(PROJECT_DIRECTORY)
+if "{{ cookiecutter.create_example_project }}".lower() in ["n", "y"]:
     insert_python_versions("{{cookiecutter.python_versions}}", "{{ cookiecutter.repo_name }}")
