@@ -39,5 +39,5 @@ def insert_python_versions(versions: str = "", repo_name: str = ""):
 # 1. Removes the example project if it isn't going to be used
 if "{{ cookiecutter.create_example_project }}".lower() == "n":
     remove_example_project(PROJECT_DIRECTORY)
-if "{{ cookiecutter.create_example_project }}".lower() in ["n", "y"]:
+if "{{ cookiecutter.create_example_project }}".lower() in ["n", "N", "y", "Y"]:
     insert_python_versions("{{cookiecutter.python_versions}}", "{{ cookiecutter.repo_name }}")
