@@ -34,8 +34,9 @@ jobs:
        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         python -m pip install .
+        python -m pip install -r requirements_test.txt
         python -m pip install coveralls==3.1.0 coverage
-        python -m coverage run --source __REPO_NAME__ runtests.py
+        python -m coverage run --source __APP_NAME__ runtests.py
         coveralls --service=github
 
   read-the-docs:
