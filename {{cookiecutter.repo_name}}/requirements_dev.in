@@ -3,6 +3,19 @@ twine
 wheel
 zest.releaser
 bumpversion
+pre-commit
+black
+coverage
+flake8-bugbear
+flake8-docstrings
+flake8-isort
+flake8-mypy
+flake8
+ipdb
+isort
+mypy
+tblib
+tox
 {% if cookiecutter.models != "Comma-separated list of models" %}django-model-utils{% endif %}
 
 Django>2.2

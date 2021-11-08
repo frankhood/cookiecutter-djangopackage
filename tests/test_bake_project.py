@@ -49,7 +49,7 @@ def test_bake_selecting_license(cookies):
         with bake_in_temp_dir(
             cookies, extra_context={"open_source_license": license}
         ) as result:
-            assert target_string in result.project.join("LICENSE").read()
+            assert target_string in result.project.join("LICENSE.md").read()
             assert license in result.project.join("setup.py").read()
 
 
@@ -244,6 +244,40 @@ def test_app_config(cookies):
         readme_file = result.project.join("README.rst")
         readme_text = readme_file.read()
         assert "'cookie_lover'," in readme_text
+
+
+def test_pre_commit_config(cookies):
+    extra_context = {"app_name": "cookie_lover"}
+    with bake_in_temp_dir(cookies, extra_context=extra_context) as result:
+        apps_file = result.project.join(".pre-commit-config.yaml")
+        apps_text = apps_file.read()
+        assert "black" in apps_text
+        assert "flake8" in apps_text
+        assert "isort" in apps_text
+        assert "mypy" in apps_text
+        assert "pre-commit-hooks" in apps_text
+        assert "check-merge-conflict" in apps_text
+        assert "django-test" in apps_text
+
+
+def test_setup_cfg(cookies):
+    extra_context = {"app_name": "cookie_lover"}
+    with bake_in_temp_dir(cookies, extra_context=extra_context) as result:
+        apps_file = result.project.join("setup.cfg")
+        apps_text = apps_file.read()
+        assert "[wheel]" in apps_text
+        assert "[flake8]" in apps_text
+        assert "[zest.releaser]" in apps_text
+        assert "[coverage:run]" in apps_text
+        assert "[tool.black]" in apps_text
+        assert "[metadata]" in apps_text
+        assert "[mypy]" in apps_text
+        assert "[tool.isort]" in apps_text
+        assert "[mypy-*.migrations.*]" in apps_text
+        assert "[testenv:report]" in apps_text
+        assert "[testenv:reporthtml]" in apps_text
+        assert "[testenv:reportxml]" in apps_text
+        assert "[tox:tox]" in apps_text
 
 
 # example project tests from here on
