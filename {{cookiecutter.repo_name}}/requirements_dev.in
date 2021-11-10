@@ -16,6 +16,7 @@ isort
 mypy
 tblib
 tox
+pip-tools~=5.5.0
 {% if cookiecutter.models != "Comma-separated list of models" %}django-model-utils{% endif %}
 
 Django>2.2
