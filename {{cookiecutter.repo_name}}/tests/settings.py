@@ -31,9 +31,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     '{{ cookiecutter.app_name }}',
-    {% if cookiecutter.create_example_project.lower() == 'n' %}
-    '{{ cookiecutter.app_name }}.test_utils.test_app'
-    {% endif %}
 
     # if your app has other dependencies that need to be added to the site
     # they should be added here

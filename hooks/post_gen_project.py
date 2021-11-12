@@ -37,8 +37,4 @@ def insert_python_versions(versions: str = "", repo_name: str = "", app_name: st
     print("Added python versions to .github/workflows/actions.yml file.")
 
 
-# 1. Removes the example project if it isn't going to be used
-if "{{ cookiecutter.create_example_project }}".lower() == "n":
-    remove_example_project(PROJECT_DIRECTORY)
-if "{{ cookiecutter.create_example_project }}".lower() in ["n", "N", "y", "Y"]:
-    insert_python_versions("{{cookiecutter.python_versions}}", "{{ cookiecutter.repo_name }}", "{{ cookiecutter.app_name }}")
+insert_python_versions("{{cookiecutter.python_versions}}", "{{ cookiecutter.repo_name }}", "{{ cookiecutter.app_name }}")

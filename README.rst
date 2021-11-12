@@ -68,7 +68,6 @@ It prompts you for information that it uses to create the app, with defaults in 
     models [Comma-separated list of models]: Scoop, Flavor
     django_versions [1.11,2.1]:
     version [0.1.0]:
-    create_example_project [N]:
     Select open_source_license:
     1 - MIT
     2 - BSD
