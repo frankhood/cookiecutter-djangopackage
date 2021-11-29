@@ -8,8 +8,8 @@
 .. image:: https://readthedocs.org/projects/pip/badge/?version=latest&style=flat-square
     :target: https://{{ cookiecutter.repo_name }}.readthedocs.io/en/latest/
 
-.. image:: https://img.shields.io/coveralls/github/frankhood/{{ cookiecutter.repo_name }}/master?style=flat-square
-    :target: https://coveralls.io/github/frankhood/{{ cookiecutter.repo_name }}?branch=master
+.. image:: https://img.shields.io/coveralls/github/frankhood/{{ cookiecutter.repo_name }}/main?style=flat-square
+    :target: https://coveralls.io/github/frankhood/{{ cookiecutter.repo_name }}?branch=main
     :alt: Coverage Status
 
 {{ cookiecutter.project_short_description}}
